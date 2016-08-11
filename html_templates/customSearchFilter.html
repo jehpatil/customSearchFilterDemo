@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <title>Custom Filter Demo</title>
+
+  <link rel="stylesheet" href="../static/bower_components/bootstrap/dist/css/bootstrap.css">
+ <style >
+	table {
+		border-collapse: collapse;
+		background-color: yellow;
+	}
+	th{
+		border: 1px solid black;
+		padding: 5px;		
+	}
+	td{
+		border: 1px solid black;
+		text-align: left;
+	}
+	input{
+		background-color:pink;
+	}
+ </style>
+</head>
+
+<body ng-app="myApp" ng-controller="mainController">
+	<h1>With Custom Filter</h1>
+       
+    <div>
+		<input type="text" id="myprice" class="form-control" placeholder="Search here" ng-model="priceterm" />
+        <br/>
+        <table class="table">
+            <tr ng-repeat="b in products|priceGreaterThan:priceterm">
+                <td>{{b.name}}</td>
+    	        <td>{{b.price}}</td>
+        	</tr>
+        </table>
+	</div>
+	
+
+	<script rel="stylesheet" src="../static/bower_components/jquery/dist/jquery.min.js"></script>
+    <script rel="stylesheet" src="../static/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../static/bower_components/angular/angular.min.js"></script>
+
+	<script src="../static/js/script.js"></script>
+
+</body>
+</html>
